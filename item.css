@@ -1,8 +1,32 @@
+.rss {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(to top, transparent, transparent),
+    linear-gradient(
+      to right,
+      var(--dark-purple),
+      var(--mid-purple),
+      var(--dark-purple)
+    );
+  background-size: 100% 100%, 200% 100%;
+  animation: anim 10s infinite linear;
+}
+
+@keyframes anim {
+  from {
+    background-position: 0%, 200%;
+  }
+  to {
+    background-position: 0%, 0%;
+  }
+}
+
 .item {
   display: flex;
   flex-direction: column;
   border-width: 1px;
   min-height: 300px;
+  max-width: 1000px;
   margin: 10px;
   border-radius: var(--item-border-radius);
   color: white;
@@ -24,7 +48,7 @@
 }
 
 .item img {
-  width: 30vmin;
+  width: 15vmin;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--item-border-radius);
@@ -51,6 +75,8 @@
 }
 
 .item .info {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
