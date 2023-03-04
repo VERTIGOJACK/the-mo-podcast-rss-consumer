@@ -16,6 +16,7 @@ const loadContent = async (appendTarget, amount) => {
     loadCounter += amount;
   } else {
     loadingCircle.setAttribute("class", "hide");
+    loadingCircle.setAttribute("hidden", "true");
   }
 };
 //first load
