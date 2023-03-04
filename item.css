@@ -1,6 +1,3 @@
-.rss {
-}
-
 .item {
   display: flex;
   flex-direction: column;
@@ -27,7 +24,7 @@
 }
 
 .item img {
-  width: 20vmin;
+  width: 30vmin;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--item-border-radius);
@@ -39,6 +36,7 @@
   background-color: var(--dark-purple);
   border-radius: var(--item-border-radius);
   font-family: var(--title);
+  align-items: center;
 }
 
 .item .title h1 {
@@ -73,4 +71,24 @@ audio::-webkit-media-controls-panel {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(var(--purple-drop-shadow));
+}
+
+@media only screen and (max-width: 600px) {
+  .item {
+    min-height: 0;
+  }
+  .item-body {
+    flex-direction: column;
+  }
+
+  .item img {
+    width: 50vmin;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: var(--item-border-radius);
+  }
+
+  .audio-container {
+    height: 70vmin;
+  }
 }
