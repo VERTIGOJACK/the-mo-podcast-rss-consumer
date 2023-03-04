@@ -48,10 +48,27 @@ export const RssBuilder = (items, startindex, endindex) => {
     let itemBody = document.createElement("div");
     itemBody.setAttribute("class", "item-body");
 
-    //create and append image
+    //create and append audioplayer with image
+    let audioContainer = document.createElement("div");
+    audioContainer.setAttribute("class", "audio-container");
+
+    //image
     const episodeImage = document.createElement("img");
     episodeImage.setAttribute("src", element["itunes:image"]["@href"]);
-    itemBody.appendChild(episodeImage);
+    audioContainer.appendChild(episodeImage);
+
+    //audio
+    const audio = document.createElement("audio");
+    audio.setAttribute("controls", "metadata");
+    audio.setAttribute("preload", "metadata");
+
+    const audiosrc = document.createElement("source");
+    audiosrc.setAttribute("src", items[i].enclosure["@url"]);
+    audiosrc.setAttribute("type", "audio/mp3");
+
+    audio.appendChild(audiosrc);
+    audioContainer.appendChild(audio);
+    itemBody.appendChild(audioContainer);
 
     //create info container
     const info = document.createElement("div");
@@ -65,18 +82,6 @@ export const RssBuilder = (items, startindex, endindex) => {
       element.setAttribute("class", "description");
       info.appendChild(element);
     });
-
-    //create and append audioplayer
-    const audio = document.createElement("audio");
-    audio.setAttribute("controls", "");
-    audio.setAttribute("preload", "metadata");
-
-    const audiosrc = document.createElement("source");
-    audiosrc.setAttribute("src", items[i].enclosure["@url"]);
-    audiosrc.setAttribute("type", "audio/mp3");
-
-    audio.appendChild(audiosrc);
-    info.appendChild(audio);
 
     //append info to itembody
     itemBody.appendChild(info);

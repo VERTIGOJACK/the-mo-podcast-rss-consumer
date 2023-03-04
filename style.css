@@ -1,6 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+
+:root {
+  --dark-purple: #160a26;
+  --mid-purple: #280440;
+  --light-purple: #d3c4f2;
+  --mid-green: #3ca638;
+  --light-green: #48d932;
+  --item-drop-shadow: 4px 8px 2px rgba(0, 0, 0, 0.8);
+  --green-drop-shadow: 4px 8px 32px rgba(72, 217, 50, 0.8);
+  --purple-drop-shadow: 4px 8px 32px rgba(211, 196, 242, 0.4);
+  --item-border-radius: 1vmin;
+  --title: "Comfortaa", cursive;
+  --paragraph: "Tilt Neon", cursive;
+}
+
 body {
   padding: 0%;
   margin: 0%;
+  background: var(--dark-purple);
 }
 
 nav {
@@ -70,50 +88,3 @@ nav a:hover,
   display: block;
 }
 
-.item {
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
-  border-width: 1px;
-  min-height: 300px;
-  margin: 10px;
-  border-radius: 1vmin;
-}
-
-.item * {
-  margin: 1vmin;
-}
-
-.item-body {
-  display: flex;
-}
-
-.item img {
-  width: 20vmin;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-}
-
-.item .title {
-  display: flow-root;
-}
-
-.item .title h1 {
-  max-width: 80%;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.item .title p {
-  float: right;
-}
-
-.item .title h1 {
-  float: left;
-}
-
-.item .description {
-  max-width: 800px;
-}
