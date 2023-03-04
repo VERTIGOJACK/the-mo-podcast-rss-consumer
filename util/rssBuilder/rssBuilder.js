@@ -18,11 +18,11 @@ export const GetRssAsJson = async (url) => {
   return json;
 };
 
-export const RssBuilder = (appendTarget ,items, startindex, endindex) => {
-  if (endindex == 0) {
+export const RssBuilder = (appendTarget, items, startindex, endindex) => {
+  if (endindex == 0 || endindex > items.length) {
     endindex = items.length;
   }
-  const container = appendTarget
+  const container = appendTarget;
 
   console.log(items[0]);
 
@@ -37,11 +37,11 @@ export const RssBuilder = (appendTarget ,items, startindex, endindex) => {
     //create and append titlecontainer
     const title = document.createElement("div");
     title.setAttribute("class", "title");
-    title.appendChild(el.TextElement("h1", (items.length - i)+" :"));
+    title.appendChild(el.TextElement("h1", items.length - i + " :"));
     //create and append title
     title.appendChild(el.TextElement("p", element.title["#cdata"]));
     //create and append episode number
-    
+
     itemPost.appendChild(title);
 
     //create and append container under title section

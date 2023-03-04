@@ -5,16 +5,25 @@ const RSS_URL = "https://anchor.fm/s/34182390/podcast/rss";
 const rssSection = document.getElementById("content");
 
 let loadCounter = 0;
-//break containing div out of rssbuilder
+
+//method for loading content
 const loadContent = async (appendTarget, amount) => {
   const json = await GetRssAsJson(RSS_URL);
   const items = json.rss.channel.item;
-  RssBuilder(appendTarget, items, loadCounter, loadCounter + amount);
-  loadCounter = amount;
+  if (loadCounter < items.length) {
+    RssBuilder(appendTarget, items, loadCounter, loadCounter + amount);
+    loadCounter += amount;
+  }
 };
+//first load
+loadContent(rssSection, 10);
 
-await loadContent(rssSection, 10);
-await loadContent(rssSection, 10);
+//on bottom of page
+window.onscroll = function (ev) {
+  if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+    loadContent(rssSection, 10);
+  }
+};
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
