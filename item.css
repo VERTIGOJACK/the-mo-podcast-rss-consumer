@@ -11,7 +11,6 @@
   background-size: 100% 100%, 200% 100%;
 }
 
-
 .item {
   display: flex;
   flex-direction: column;
@@ -43,6 +42,7 @@
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--item-border-radius);
+  filter: drop-shadow(var(--item-drop-shadow));
 }
 
 .item .title {
@@ -58,11 +58,15 @@
   width: auto;
 }
 
-.item .title p {
-  display: inline-block;
+.item .title h2 {
+  line-height: 1.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
   width: 100%;
   max-width: 80%;
-  text-overflow: ellipsis;
 }
 
 .item .info {
@@ -77,6 +81,9 @@
 
 audio::-webkit-media-controls-panel {
   background-color: var(--light-purple);
+}
+audio {
+  filter: drop-shadow(var(--item-drop-shadow));
 }
 
 .audio-container {

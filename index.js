@@ -3,6 +3,7 @@ import { RssBuilder, GetRssAsJson } from "./util/rssBuilder/rssBuilder.js";
 const RSS_URL = "https://anchor.fm/s/34182390/podcast/rss";
 
 const rssSection = document.getElementById("content");
+const loadingCircle = document.getElementById("loading-circle");
 
 let loadCounter = 0;
 
@@ -13,6 +14,8 @@ const loadContent = async (appendTarget, amount) => {
   if (loadCounter < items.length) {
     RssBuilder(appendTarget, items, loadCounter, loadCounter + amount);
     loadCounter += amount;
+  } else {
+    loadingCircle.setAttribute("class", "hide");
   }
 };
 //first load
