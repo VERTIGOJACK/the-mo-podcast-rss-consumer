@@ -38,7 +38,7 @@
 }
 
 .item img {
-  width: 15vmin;
+  width: 30vmin;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--item-border-radius);
