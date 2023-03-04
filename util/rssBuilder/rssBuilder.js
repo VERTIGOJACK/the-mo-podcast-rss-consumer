@@ -51,11 +51,8 @@ export const RssBuilder = (appendTarget, items, startindex, endindex) => {
     //create and append audioplayer with image
     let audioContainer = document.createElement("div");
     audioContainer.setAttribute("class", "audio-container");
-
-    //image
-    const episodeImage = document.createElement("img");
-    episodeImage.setAttribute("src", element["itunes:image"]["@href"]);
-    audioContainer.appendChild(episodeImage);
+    audioContainer.style =
+      "--bg-image: url(" + element["itunes:image"]["@href"] + ");";
 
     //audio
     const audio = document.createElement("audio");
