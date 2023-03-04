@@ -6,7 +6,7 @@ const rssSection = document.getElementById("rss");
 
 const json = await GetRssAsJson(RSS_URL);
 const items = json.rss.channel.item;
-const result = RssBuilder(items, 0, 0);
+const result = RssBuilder(items, 0, 10);
 rssSection.appendChild(result);
 
 /* When the user clicks on the button, 
