@@ -38,10 +38,11 @@ export const RssBuilder = (items, startindex, endindex) => {
     //create and append titlecontainer
     const title = document.createElement("div");
     title.setAttribute("class", "title");
+    title.appendChild(el.TextElement("h1", "Episode " + (items.length - i)+" :"));
     //create and append title
-    title.appendChild(el.TextElement("h1", element.title["#cdata"]));
+    title.appendChild(el.TextElement("p", element.title["#cdata"]));
     //create and append episode number
-    title.appendChild(el.TextElement("p", "Episode: " + (items.length - i)));
+    
     itemPost.appendChild(title);
 
     //create and append container under title section
