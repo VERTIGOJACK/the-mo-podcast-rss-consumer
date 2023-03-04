@@ -18,12 +18,11 @@ export const GetRssAsJson = async (url) => {
   return json;
 };
 
-export const RssBuilder = (items, startindex, endindex) => {
+export const RssBuilder = (appendTarget ,items, startindex, endindex) => {
   if (endindex == 0) {
     endindex = items.length;
   }
-  const container = document.createElement("section");
-  container.setAttribute("id", "rss-section");
+  const container = appendTarget
 
   console.log(items[0]);
 
@@ -93,5 +92,4 @@ export const RssBuilder = (items, startindex, endindex) => {
     //append itemPost to container
     container.appendChild(itemPost);
   }
-  return container;
 };

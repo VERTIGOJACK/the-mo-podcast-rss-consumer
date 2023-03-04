@@ -9,17 +9,8 @@
       var(--dark-purple)
     );
   background-size: 100% 100%, 200% 100%;
-  animation: anim 10s infinite linear;
 }
 
-@keyframes anim {
-  from {
-    background-position: 0%, 200%;
-  }
-  to {
-    background-position: 0%, 0%;
-  }
-}
 
 .item {
   display: flex;

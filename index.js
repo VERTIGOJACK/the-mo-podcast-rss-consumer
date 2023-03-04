@@ -2,12 +2,19 @@ import { RssBuilder, GetRssAsJson } from "./util/rssBuilder/rssBuilder.js";
 
 const RSS_URL = "https://anchor.fm/s/34182390/podcast/rss";
 
-const rssSection = document.getElementById("rss");
+const rssSection = document.getElementById("content");
 
-const json = await GetRssAsJson(RSS_URL);
-const items = json.rss.channel.item;
-const result = RssBuilder(items, 0, 10);
-rssSection.appendChild(result);
+let loadCounter = 0;
+//break containing div out of rssbuilder
+const loadContent = async (appendTarget, amount) => {
+  const json = await GetRssAsJson(RSS_URL);
+  const items = json.rss.channel.item;
+  RssBuilder(appendTarget, items, loadCounter, loadCounter + amount);
+  loadCounter = amount;
+};
+
+await loadContent(rssSection, 10);
+await loadContent(rssSection, 10);
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
