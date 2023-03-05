@@ -16,6 +16,12 @@ const spinner = parser
   .parseFromString(text, "text/html")
   .querySelector(".spinner-container");
 console.log(spinner);
+
+const link = document.createElement("link");
+link.setAttribute("rel", "stylesheet");
+link.setAttribute("href", "./util/loading-spinner-4/dist/style.css");
+spinner.appendChild(link);
+
 loadingCircle.appendChild(spinner);
 
 let loadCounter = 0;
