@@ -1,22 +1,21 @@
 :root {
-  --startcolor: green;
-  --endcolor: greenyellow;
-  --size: 5rem;
+  --startcolor: var(--mid-green);
+  --endcolor: var(--light-green);
+  --size: 3rem;
   --speed: 3s;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+#loading-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
-body {
-  background: black;
-  display: grid;
-  place-content: center;
+
+.hide * {
+  display: none;
 }
+
 .spinner-container {
   position: relative;
   width: var(--size);
@@ -40,6 +39,7 @@ body {
   height: 100%;
   border-radius: 100%;
   animation: bubbleGrow var(--speed) ease-in-out infinite;
+  filter: drop-shadow(var(--green-glow));
 }
 
 .bubble-container.n2 {
@@ -83,13 +83,14 @@ body {
 @keyframes bubbleGrow {
   0% {
     transform: scale(1);
-    background-color:var(--startcolor);
+    background-color: var(--startcolor);
   }
   50% {
     transform: scale(1.5);
-    background-color:var(--endcolor);
+    background-color: var(--endcolor);
+  }
   100% {
     transform: scale(1);
-    background-color:var(--startcolor);
+    background-color: var(--startcolor);
   }
 }

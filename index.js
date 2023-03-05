@@ -2,11 +2,21 @@ import { RssBuilder, GetRssAsJson } from "./util/rssBuilder/rssBuilder.js";
 
 const RSS_URL = "https://anchor.fm/s/34182390/podcast/rss";
 const ITEMS_PER_LOAD = 5;
-const DEBOUNCE_VALUE = 200;
+const DEBOUNCE_VALUE = 100;
 
 const rssSection = document.getElementById("content");
 const loadingCircle = document.getElementById("loading-circle");
 const sortSwitch = document.getElementById("sort");
+
+const parser = new DOMParser();
+let response = await fetch("./util/loading-spinner-4/dist/index.html");
+let text = await response.text();
+const spinner = parser
+  .parseFromString(text, "text/html")
+  .querySelector(".spinner-container");
+console.log(spinner);
+
+loadingCircle.appendChild(spinner);
 
 let loadCounter = 0;
 let sort = "forward";
