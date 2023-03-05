@@ -12,10 +12,10 @@ const sortSwitch = document.getElementById("sort");
 const parser = new DOMParser();
 let response = await fetch("./util/loading-spinner-4/dist/index.html");
 let text = await response.text();
+
 const spinner = parser
   .parseFromString(text, "text/html")
   .querySelector(".spinner-container");
-console.log(spinner);
 
 const link = document.createElement("link");
 link.setAttribute("rel", "stylesheet");
@@ -24,6 +24,7 @@ spinner.appendChild(link);
 
 loadingCircle.appendChild(spinner);
 
+//declare globals
 let loadCounter = 0;
 let sort = "forward";
 

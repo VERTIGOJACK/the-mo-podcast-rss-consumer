@@ -74,7 +74,9 @@ const BuilderAlgo = (i, items, container) => {
 
   //image
   const episodeImage = document.createElement("img");
-  episodeImage.setAttribute("src", element["itunes:image"]["@href"]);
+  const imageSrc =
+    "//wsrv.nl/?url=" + element["itunes:image"]["@href"] + "&w=200&h=200";
+  episodeImage.setAttribute("src", imageSrc);
   audioContainer.appendChild(episodeImage);
 
   //audio
