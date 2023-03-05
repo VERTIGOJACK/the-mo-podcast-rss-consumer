@@ -8,6 +8,7 @@ const rssSection = document.getElementById("content");
 const loadingCircle = document.getElementById("loading-circle");
 const sortSwitch = document.getElementById("sort");
 
+//load spinner from html
 const parser = new DOMParser();
 let response = await fetch("./util/loading-spinner-4/dist/index.html");
 let text = await response.text();
@@ -15,7 +16,6 @@ const spinner = parser
   .parseFromString(text, "text/html")
   .querySelector(".spinner-container");
 console.log(spinner);
-
 loadingCircle.appendChild(spinner);
 
 let loadCounter = 0;
@@ -30,6 +30,7 @@ sortSwitch.addEventListener("change", () => {
   } else {
     sort = "reverse";
   }
+  loadingCircle.classList.remove("hide");
   loadContent(rssSection, ITEMS_PER_LOAD);
 });
 
@@ -42,7 +43,6 @@ const loadContent = async (appendTarget, amount) => {
     loadCounter += amount;
   } else {
     loadingCircle.setAttribute("class", "hide");
-    loadingCircle.setAttribute("hidden", "true");
   }
 };
 
