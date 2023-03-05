@@ -1,4 +1,5 @@
 .rss {
+  padding-top: 10vmin;
   display: flex;
   justify-content: center;
   background-image: linear-gradient(to top, transparent, transparent),
@@ -38,7 +39,7 @@
 }
 
 .item img {
-  width: 15vmin;
+  width: 30vmin;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: var(--item-border-radius);
