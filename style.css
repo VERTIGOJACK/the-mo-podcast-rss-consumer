@@ -88,3 +88,20 @@ nav a:hover,
   display: block;
 }
 
+.options {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--dark-purple);
+  width: 100%;
+}
+
+.switch {
+  margin: 1vw;
+}
+
+label {
+  color: white;
+  font-family: var(--paragraph);
+}

@@ -6,21 +6,36 @@ const DEBOUNCE_VALUE = 200;
 
 const rssSection = document.getElementById("content");
 const loadingCircle = document.getElementById("loading-circle");
+const sortSwitch = document.getElementById("sort");
 
 let loadCounter = 0;
+let sort = "forward";
+
+//order selector
+sortSwitch.addEventListener("change", () => {
+  rssSection.innerHTML = "";
+  loadCounter = 0;
+  if (sortSwitch.checked) {
+    sort = "forward";
+  } else {
+    sort = "reverse";
+  }
+  loadContent(rssSection, ITEMS_PER_LOAD);
+});
 
 //method for loading content
 const loadContent = async (appendTarget, amount) => {
   const json = await GetRssAsJson(RSS_URL);
   const items = json.rss.channel.item;
   if (loadCounter < items.length) {
-    RssBuilder(appendTarget, items, loadCounter, loadCounter + amount);
+    RssBuilder(appendTarget, items, loadCounter, loadCounter + amount, sort);
     loadCounter += amount;
   } else {
     loadingCircle.setAttribute("class", "hide");
     loadingCircle.setAttribute("hidden", "true");
   }
 };
+
 //first load
 loadContent(rssSection, ITEMS_PER_LOAD);
 

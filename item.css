@@ -1,4 +1,5 @@
 .rss {
+  padding-top: 10vmin;
   display: flex;
   justify-content: center;
   background-image: linear-gradient(to top, transparent, transparent),
